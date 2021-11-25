@@ -1,0 +1,22 @@
+{% extends './base.html' %}
+{% block title %}Home{% endblock%}
+{% block content %}
+<h1>Các bài viết</h1>
+<hr/>
+{% if messages %}
+{% for m in messages %}
+    <p style = 'color : red;font-weight:lighter'>{{m}}</p>
+{% endfor %}
+{% endif %}
+{% if object_list %}
+<ul>
+{% for item in object_list %}
+    <li><a class="btn btn-outline-secondary" href = "{% url 'Theblog:detail' item.id%}">{{item.title}}</a> | {{item.author}} - {{item.author.email}}</li>
+<br/>
+{% endfor %}
+</ul>
+{% else %}
+<p style = 'font-weight : lighter; font-size : 30px'>KHÔNG CÓ BÀI VIẾT NÀO</p>
+{% endif %}
+
+  {% endblock %}

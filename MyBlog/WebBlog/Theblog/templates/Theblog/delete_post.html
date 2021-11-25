@@ -1,0 +1,12 @@
+{% extends './base.html' %}
+{% block title %}Đăng Bài{% endblock%}
+{% block content %}
+<form method = 'post' action = ''>
+    {% csrf_token %}
+    <h1>Delete: {{p.title}}</h1>
+<strong>Bạn có chắc chắn muốn xoá không ?</strong>
+<br/>
+    <input class="btn btn-secondary" type = "submit" value = "Chắc Chắn"/>
+    <a class="btn btn-secondary" href = "{% url 'Theblog:detail' p.id %}">Quay Lại</a>
+</form>
+{% endblock %}

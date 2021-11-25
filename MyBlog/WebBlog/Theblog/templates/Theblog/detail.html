@@ -1,0 +1,20 @@
+{% extends './base.html' %}
+{% block title %}Chi tiết{% endblock%}
+{% block content %}
+<h1>{{post.title}}</h1>
+<small>Created at:{{post.date}}</small><br/>
+<small>By:{{post.author}}</small>
+
+<hr/>
+{{post.content}}
+<br/>
+{% if post.image %}
+    <img src = "{{post.image.url}}" width = '500'/>
+{% endif%}
+<br/><br/>
+<a href = "{% url 'Theblog:update' post.id  %}" class="btn btn-secondary">Chỉnh Sửa</a>
+<a href = "{% url 'Theblog:delete' post.id  %}" class="btn btn-secondary">Xoá</a>
+<a href = "{% url 'Theblog:home'  %}" class="btn btn-secondary">Quay lại</a>
+
+
+{% endblock %}
